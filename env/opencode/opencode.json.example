@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "azure-cognitive-services": {
+      "env": ["AZURE_RESOURCE_API_KEY"],
+      "options": {
+        "apiKey": "{env:AZURE_RESOURCE_API_KEY}"
+      }
+    },
+    "Azure-Resource": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Azure Resource",
+      "options": {
+        "baseURL": "https://<your-resource-name>.services.ai.azure.com/openai/v1/",
+        "apiKey": "{env:AZURE_RESOURCE_API_KEY}"
+      },
+      "models": {
+        "Kimi-K2.6": {
+          "name": "Kimi-K2.6",
+          "limit": { "output": 10000, "context": 262144 }
+        },
+        "DeepSeek-V4-Flash": {
+          "name": "DeepSeek-V4-Flash"
+        },
+        "DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    }
+  }
+}

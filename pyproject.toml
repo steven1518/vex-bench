@@ -1,0 +1,43 @@
+[project]
+name = "vex-bench"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.9",
+    "openai>=2.29.0",
+    "pydantic>=2.0",
+    "scikit-learn>=1.8.0",
+    "tabulate>=0.10.0",
+    "unidiff>=0.7.5",
+]
+
+[dependency-groups]
+dev = ["ruff>=0.8"]
+
+[project.scripts]
+vex-bench = "cli:main"
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["cli"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/evaluate/prompts.py" = ["E501"]
